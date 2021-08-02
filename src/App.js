@@ -1,20 +1,29 @@
-import "./App.scss";
+import "./style/main.scss";
 import { NavLink, Switch, Route, Redirect } from "react-router-dom";
 import logo from "./components/img/logo-fill.png";
-import auth from './components/img/user.svg'
-import Login from './components/Login'
+import auth from "./components/img/user.svg";
+import Login from "./components/Login";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleLoggedIn } from "./components/slices/UserDataSlice";
 
 function App() {
+  const isLogged = useSelector((state) => state.userData.isLoggedIn);
+  const dispatch = useDispatch();
+
   return (
     <div className="wrap">
       <header className="nav-bar">
-        
         <div className="nav-menu">
-		<div className="nav-logo">
-          <NavLink to="/home">
-            <img src={logo} width="120px" height="120px" alt="SkillGuru logo"></img>
-          </NavLink>
-        </div>
+          <div className="nav-logo">
+            <NavLink to="/home">
+              <img
+                src={logo}
+                width="120px"
+                height="120px"
+                alt="SkillGuru logo"
+              ></img>
+            </NavLink>
+          </div>
           <NavLink
             to="/home"
             activeClassName="active-item"
@@ -37,12 +46,29 @@ function App() {
             About
           </NavLink>
         </div>
-			<NavLink to="/auth" className="nav-auth" activeClassName="active-auth">
-				<img src= {auth} width="40px" height = "40px" className='auth-img'></img>
-				<button className="nav-auth-btn">
-					Login
-				</button>
-			</NavLink>
+        {isLogged ? (
+          <button
+            className="nav-auth-btn"
+            onClick={() => dispatch(toggleLoggedIn())}
+          >
+            Logout
+          </button>
+        ) : (
+          <NavLink
+            to="/auth"
+            className="nav-auth"
+            activeClassName="active-auth"
+          >
+            <img
+              src={auth}
+              width="40px"
+              height="40px"
+              className="auth-img"
+              alt="login icon"
+            ></img>
+            <button className="nav-auth-btn">Login</button>
+          </NavLink>
+        )}
       </header>
 
       <main className="main">
