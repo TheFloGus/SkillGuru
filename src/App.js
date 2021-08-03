@@ -3,12 +3,12 @@ import { NavLink, Switch, Route, Redirect } from "react-router-dom";
 import logo from "./components/img/logo-fill.png";
 import auth from "./components/img/user.svg";
 import Login from "./components/Login";
-import { useSelector, useDispatch } from "react-redux";
-import { toggleLoggedIn } from "./components/slices/UserDataSlice";
+import { useSelector } from "react-redux";
+import Registration from "./components/Registration"
 
 function App() {
   const isLogged = useSelector((state) => state.userData.isLoggedIn);
-  const dispatch = useDispatch();
+  const currentUser = useSelector((state) => state.userData.currentUser)
 
   return (
     <div className="wrap">
@@ -47,15 +47,15 @@ function App() {
           </NavLink>
         </div>
         {isLogged ? (
-          <button
+          <NavLink
+		  to="/dashboard"
             className="nav-auth-btn"
-            onClick={() => dispatch(toggleLoggedIn())}
           >
-            Logout
-          </button>
+            {`Welcome, ${currentUser.userName}!`}
+          </NavLink>
         ) : (
           <NavLink
-            to="/auth"
+            to="/auth/login"
             className="nav-auth"
             activeClassName="active-auth"
           >
@@ -76,8 +76,11 @@ function App() {
           <Route exact path="/">
             <Redirect to="/home" />
           </Route>
-          <Route exact path="/auth">
+          <Route exact path="/auth/login">
             <Login />
+          </Route>
+		  <Route exact path="/auth/registration">
+            <Registration />
           </Route>
           <Route exact path="/home">
             {/* <Home /> */}

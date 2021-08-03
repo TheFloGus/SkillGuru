@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import avatar from "../img/Avatar.png";
 
 const initialState = {
   courses: [
