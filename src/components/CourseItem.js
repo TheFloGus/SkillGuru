@@ -25,7 +25,7 @@ function CourseItem({ item, index }) {
     );
     dispatch(setCurrentUser(currentUser.index));
     setOpen(false);
-	setEdit(false)
+    setEdit(false);
   }
 
   function cancelHandler(e) {
@@ -85,7 +85,11 @@ function CourseItem({ item, index }) {
               );
             }
           })}
-          {edit && <button onClick={()=>dispatch(addNewTechnologyField(index))}>+</button>}
+          {edit && (
+            <button onClick={() => dispatch(addNewTechnologyField(index))}>
+              +
+            </button>
+          )}
         </p>
         {open &&
           (edit ? (
@@ -105,6 +109,7 @@ function CourseItem({ item, index }) {
           width="100px"
           height="100px"
           className={"course-logo " + (open ? " open-logo" : "")}
+          alt="course-logo"
         ></img>
         {open && (
           <div className="course-buttons">

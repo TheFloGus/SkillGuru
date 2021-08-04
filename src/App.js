@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     dispatch(setLocalCourses());
     dispatch(setLocalUserData());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="wrap">

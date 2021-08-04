@@ -16,6 +16,7 @@ const initialState = {
       logo: frontEndLogo,
       color: "#AED8FF",
       id: uuid(),
+	  playlist: 'PLM6XATa8CAG4F9nAIYNS5oAiPotxwLFIr'
     },
     {
       name: "Back-end",
@@ -26,6 +27,7 @@ const initialState = {
       logo: backEndLogo,
       color: "#A0ECCF",
       id: uuid(),
+	  playlist: 'PL_z4rXo1im3rLSy_0pph435-VytTbhgUe'
     },
     {
       name: "Ux/Ui",
@@ -36,6 +38,7 @@ const initialState = {
       logo: UILogo,
       color: "#F2B7D3",
       id: uuid(),
+	  playlist: 'PL4D4ciWjcTFy59b1tXBAjhnNYP4fLoyVc'
     },
     {
       name: "Python",
@@ -46,6 +49,7 @@ const initialState = {
       logo: pythonLogo,
       color: "#FBB028",
       id: uuid(),
+	  playlist: 'PL0lO_mIqDDFXgfuxOEDTCwsWmKezOaDTu'
     },
   ],
 };

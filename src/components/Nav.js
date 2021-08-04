@@ -49,13 +49,15 @@ function Nav() {
           >
             About
           </NavLink>
-		  {(isLogged && currentUser.userCourses.length > 0) && <NavLink
-            to={`/mycourses&user=${currentUser.userLogin}`}
-            activeClassName="active-item"
-            className="nav-item"
-          >
-            MyCourses
-          </NavLink>}
+          {isLogged && currentUser.userCourses.length > 0 && (
+            <NavLink
+              to={`/mycourses&user=${currentUser.userLogin}`}
+              activeClassName="active-item"
+              className="nav-item"
+            >
+              MyCourses
+            </NavLink>
+          )}
         </div>
         {isLogged ? (
           <NavLink
@@ -104,8 +106,8 @@ function Nav() {
           <Route exact path="/home">
             {/* <Home /> */}
           </Route>
-		  <Route exact path="/mycourses&user=:login">
-            {<MyCourses />}
+          <Route exact path="/mycourses&user=:login">
+            {isLogged ? <MyCourses /> : <Redirect to="/auth/login" />}
           </Route>
           <Route exact path="/courses">
             <Courses />
