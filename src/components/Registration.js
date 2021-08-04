@@ -23,7 +23,7 @@ function Registartion() {
   function registrationHandler(e) {
 	e.preventDefault();
     if (name && surname && login && password) {
-      if (users.some((user) => user.userLogin === login)) {
+      if (users.some((user) => user.userLogin.toLowerCase() === login.toLowerCase())) {
         alert("this login is already registered");
       } else {
         const index = users.length;
@@ -36,12 +36,11 @@ function Registartion() {
 			userAvatar: avatar,
 			isAdmin: isAdmin,
 			isTeacher: isTeacher,
-			index: index,
 		}
         dispatch(addUser(newUser));
-        dispatch(setCurrentUser(newUser));
+        dispatch(setCurrentUser(index));
         dispatch(toggleLoggedIn());
-		history.push("/home")
+		history.push("/dashboard")
       }
     }else {
 		alert('Enter your data plz')

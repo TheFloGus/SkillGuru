@@ -1,0 +1,103 @@
+.courses {
+  width: 85%;
+  min-height: 50vh;
+  margin: 50px auto;
+}
+
+.course-list {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 20px;
+  justify-content: center;
+}
+
+.course-item {
+  display: flex;
+  justify-content: space-between;
+  width: 35%;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  transition: all 0.1s ease-in-out;
+}
+
+.open {
+  width: 72%;
+  max-height: 100vh;
+  height: 100%;
+  background-color: white;
+}
+
+.course-search-input {
+  position: relative;
+  left: 90%;
+  width: 150px;
+  height: 35px;
+  border-radius: 10px;
+  outline: none;
+  padding: 5px;
+  font-size: 15px;
+  margin: 10px;
+}
+
+.course-text {
+  width: 70%;
+}
+
+.open-logo {
+  width: 200px;
+  height: 200px;
+}
+
+.course-description {
+  margin: 5px;
+  padding: 10px;
+}
+
+.course-title {
+  margin: 5px;
+  padding: 10px;
+}
+
+.course-technologies{
+	font-size: 13px;
+	color: rgb(0, 0, 0);
+	margin-left: 15px;
+}
+
+.course-technique{
+	margin-left: 5px;
+}
+
+.open-tech {
+	font-size: 20px;
+}
+
+.course-image {
+	display: flex;
+	flex-direction: column;
+}
+
+.course-buttons{
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	margin-top: 20px;
+}
+
+.course-button {
+	background-color: transparent;
+	width: 50px;
+	height: 30px;
+	border-radius: 10px;
+	border: 1px solid black;
+}
+
+.green{
+	background-color: rgb(97, 207, 97);
+	transform: scale(1.3);
+}

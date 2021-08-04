@@ -1,0 +1,85 @@
+.dashboard {
+  max-width: 65%;
+  max-height: 65%;
+  border: 1px solid black;
+  padding: 30px;
+  border-radius: 10px;
+  margin: 100px auto;
+  box-shadow: 9px 11px 10px lightgrey;
+
+}
+
+.dash-avatar {
+  padding: 10px;
+  margin: 10px;
+}
+
+.user-avatar {
+  width: 300px;
+  height: 300px;
+}
+
+.dash-user-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dash-edit {
+  display: flex;
+  align-items: center;
+}
+
+.dash-data {
+  padding: 10px;
+  width: 50%;
+  font-size: 25px;
+}
+
+.dash-item {
+  padding: 10px;
+  padding-left: 0;
+  margin: 10px;
+  margin-left: 0;
+}
+
+.dash-edit-btn {
+  background-color: transparent;
+  border: 1px solid lightblue;
+  border-radius: 4px;
+  width: 40px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.dash-input {
+  padding: 5px;
+  margin: 10px;
+  margin-left: 0;
+  font-size: 25px;
+  border-radius: 10px;
+}
+
+.dash-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  .dash-button {
+	border: none;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 15px;
+  }
+  .back{
+	  background-color: lightblue;
+	  color: white;
+  }
+  .logout{
+	  background-color: red;
+	  color: white;
+  }
+}
+
+.dash-title{
+	font-weight: 600;
+}

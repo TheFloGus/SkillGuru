@@ -4,11 +4,13 @@ import logo from "./components/img/logo-fill.png";
 import auth from "./components/img/user.svg";
 import Login from "./components/Login";
 import { useSelector } from "react-redux";
-import Registration from "./components/Registration"
+import Registration from "./components/Registration";
+import Courses from "./components/Courses";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   const isLogged = useSelector((state) => state.userData.isLoggedIn);
-  const currentUser = useSelector((state) => state.userData.currentUser)
+  const currentUser = useSelector((state) => state.userData.currentUser);
 
   return (
     <div className="wrap">
@@ -47,10 +49,14 @@ function App() {
           </NavLink>
         </div>
         {isLogged ? (
-          <NavLink
-		  to="/dashboard"
-            className="nav-auth-btn"
-          >
+          <NavLink to="/dashboard" className="nav-auth-btn" activeClassName="active-auth">
+            <div className="nav-img">
+              <img
+                className="nav-avatar"
+                alt="userAvatar"
+                src={currentUser.userAvatar}
+              ></img>
+            </div>
             {`Welcome, ${currentUser.userName}!`}
           </NavLink>
         ) : (
@@ -61,8 +67,8 @@ function App() {
           >
             <img
               src={auth}
-              width="40px"
-              height="40px"
+              width="30px"
+              height="30px"
               className="auth-img"
               alt="login icon"
             ></img>
@@ -77,16 +83,19 @@ function App() {
             <Redirect to="/home" />
           </Route>
           <Route exact path="/auth/login">
-            <Login />
+            {isLogged ? <Redirect to="/dashboard" /> : <Login />}
           </Route>
-		  <Route exact path="/auth/registration">
-            <Registration />
+          <Route exact path="/auth/registration">
+            {isLogged ? <Redirect to="/dashboard" /> : <Registration />}
           </Route>
           <Route exact path="/home">
             {/* <Home /> */}
           </Route>
-          <Route exact path="/posts/postId:postId">
-            {/* <SepPost /> */}
+          <Route exact path="/courses">
+            <Courses />
+          </Route>
+          <Route exact path="/dashboard">
+            {isLogged ? <Dashboard /> : <Redirect to="/auth/login" />}
           </Route>
         </Switch>
       </main>

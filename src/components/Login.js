@@ -14,14 +14,20 @@ function Login() {
     e.preventDefault();
     if (login && password) {
       const currentUser = users.find(
-        (user) => user.userLogin === login && user.userPassword === password
+        (user) =>
+          user.userLogin.toLowerCase() === login.toLowerCase() &&
+          user.userPassword === password
       );
-	  const userIndex = users.findIndex((user) => user.userLogin === login && user.userPassword === password)
+      const userIndex = users.findIndex(
+        (user) =>
+          user.userLogin.toLowerCase() === login.toLowerCase() &&
+          user.userPassword === password
+      );
 
       if (currentUser) {
         dispatch(toggleLoggedIn());
-        dispatch(setCurrentUser({...currentUser, userIndex: userIndex}));
-        history.push("/home");
+        dispatch(setCurrentUser(userIndex));
+        history.push("/dashboard");
       } else {
         alert("Вы ввели неправильный логи или пароль");
       }
