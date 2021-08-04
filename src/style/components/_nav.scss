@@ -1,0 +1,90 @@
+.nav-bar {
+	display: flex;
+	position: sticky;
+	width: 100%;
+	top: 0;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	background-color: white;
+	box-shadow: 0 1px 2px lightgrey;
+	padding: 0 20px;
+	z-index: 9;
+  }
+  
+  .nav-menu {
+	display: flex;
+	width: 45%;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 20px;
+	font-weight: 400;
+  }
+  
+  .nav-item {
+	display: inline-block;
+	margin: 10px;
+	text-decoration: none;
+	color: black;
+	transition: all 0.2s ease-in-out;
+  }
+  
+  .active-item {
+	transform: scale(1.3);
+	color: rgb(0, 0, 36);
+  }
+  
+  .active-item::before {
+	content: "";
+	position: relative;
+	display: block;
+	top: 30px;
+	width: 100%;
+	height: 2px;
+	background-color: blue;
+  }
+  
+  .nav-auth {
+	display: flex;
+	width: 130px;
+	align-items: center;
+	padding: 10px;
+	height: 100%;
+	text-decoration: none;
+	justify-content: space-between;
+	transition: all 0.2s ease-in-out;
+  }
+  
+  .nav-auth-btn {
+	display: flex;
+	align-items: center;
+	font-size: 20px;
+	padding: 10px;
+	background-color: white;
+	border-radius: 25%;
+	border: none;
+	font-weight: 500;
+  }
+  .active-auth {
+	transform: scale(1.1);
+	transition: all 0.2s ease-in-out;
+  }
+  
+  .nav-avatar {
+	  position: relative;
+	width: 200px;
+	height: 200px;
+	right: 71px;
+	
+  }
+  
+  .nav-img {
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	overflow: hidden;
+	margin-right: 24px;
+  }
+  

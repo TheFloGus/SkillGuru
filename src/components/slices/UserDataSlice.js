@@ -45,7 +45,6 @@ const userDataSlice = createSlice({
     toggleLoggedIn: (state) => {
       state.isLoggedIn = !state.isLoggedIn;
       localStorage.setItem("isLoggedIn", state.isLoggedIn);
-      localStorage.setItem("users", JSON.stringify(state.users));
     },
     changeUserData: (state, action) => {
       const { index, userKey, newValue } = action.payload;
@@ -72,6 +71,11 @@ const userDataSlice = createSlice({
       state.currentUser = {};
       localStorage.setItem("currentUser", JSON.stringify(state.currentUser));
     },
+    setLocalUserData: (state) => {
+      localStorage.setItem("users", JSON.stringify(state.users));
+      localStorage.setItem("currentUser", JSON.stringify(state.currentUser));
+      localStorage.setItem("isLoggedIn", state.isLoggedIn);
+    },
   },
 });
 
@@ -84,4 +88,5 @@ export const {
   addUserCourse,
   setCurrentUser,
   unsetCurrentUser,
+  setLocalUserData,
 } = userDataSlice.actions;

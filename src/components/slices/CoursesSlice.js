@@ -3,9 +3,10 @@ import frontEndLogo from "../img/Front-end.svg";
 import backEndLogo from "../img/Back-end.svg";
 import UILogo from "../img/UI.svg";
 import pythonLogo from "../img/Python.svg";
+import { v4 as uuid } from "uuid";
 
 const initialState = {
-  courses: [
+  courses: JSON.parse(localStorage.getItem("courses")) || [
     {
       name: "Front-end",
       description:
@@ -14,7 +15,7 @@ const initialState = {
       teachers: ["theFloGus"],
       logo: frontEndLogo,
       color: "#AED8FF",
-      id: 1234,
+      id: uuid(),
     },
     {
       name: "Back-end",
@@ -24,7 +25,7 @@ const initialState = {
       teachers: ["theFloGus"],
       logo: backEndLogo,
       color: "#A0ECCF",
-      id: 1324,
+      id: uuid(),
     },
     {
       name: "Ux/Ui",
@@ -34,7 +35,7 @@ const initialState = {
       teachers: ["theFloGus"],
       logo: UILogo,
       color: "#F2B7D3",
-      id: 3214,
+      id: uuid(),
     },
     {
       name: "Python",
@@ -44,7 +45,7 @@ const initialState = {
       teachers: ["theFloGus"],
       logo: pythonLogo,
       color: "#FBB028",
-      id: 3124,
+      id: uuid(),
     },
   ],
 };
@@ -54,19 +55,38 @@ const coursesSlice = createSlice({
   initialState,
   reducers: {
     changeCourseData: (state, action) => {
-      const { index, courseKey, newValue } = action.payload;
-      state.courses[index][courseKey] = newValue;
+      const { id, newValue } = action.payload;
+      const index = state.courses.findIndex((course) => course.id === id);
+      state.courses[index] = newValue;
+      localStorage.setItem("courses", JSON.stringify(state.courses));
     },
     addCourse: (state, action) => {
       state.courses.push(action.payload);
+      localStorage.setItem("courses", JSON.stringify(state.courses));
     },
     deleteCourse: (state, action) => {
-      state.courses.splice(action.payload, 1);
-    }
+      const index = state.courses.findIndex(
+        (course) => course.id === action.payload
+      );
+      state.courses.splice(index, 1);
+      localStorage.setItem("courses", JSON.stringify(state.courses));
+    },
+    setLocalCourses: (state) => {
+      localStorage.setItem("courses", JSON.stringify(state.courses));
+    },
+    addNewTechnologyField: (state, action) => {
+      state.courses[action.payload].technologies.push("");
+	  localStorage.setItem("courses", JSON.stringify(state.courses));
+    },
   },
 });
 
 export default coursesSlice.reducer;
 
-export const { changeCourseData, addCourse, deleteCourse } =
-  coursesSlice.actions;
+export const {
+  changeCourseData,
+  addCourse,
+  deleteCourse,
+  setLocalCourses,
+  addNewTechnologyField,
+} = coursesSlice.actions;
