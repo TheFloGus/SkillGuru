@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import MyCourse from "./MyCourse";
 
@@ -15,6 +15,7 @@ function MyCourses() {
               return true;
             }
           }
+		  return false
         })
         .map((course) => (
           <MyCourse course={course} key={course.id} />

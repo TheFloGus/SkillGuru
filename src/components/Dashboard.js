@@ -43,10 +43,19 @@ function Dashboard() {
               userField={currentUser.userLogin}
               userIndex={currentUser.index}
             />
+			<p className="dash-title">Feedback</p>
+            <DashItem
+              userKey="feedback"
+              userField={currentUser.feedback}
+              userIndex={currentUser.index}
+            />
           </div>
         </div>
         <div className="dash-buttons">
-          <button className="dash-button back" onClick={() => history.push('/home')}>
+          <button
+            className="dash-button back"
+            onClick={() => history.push("/home")}
+          >
             Back
           </button>
           <button className="dash-button logout" onClick={logoutHandler}>

@@ -39,13 +39,22 @@ function DashItem({ userField, userIndex, userKey }) {
   return (
     <div className="dash-edit">
       {edit ? (
-        <input
-          className="dash-input"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        ></input>
+        userKey === "feedback" ? (
+          <textarea
+            className="dash-input-textarea"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+			maxLength='350'
+          ></textarea>
+        ) : (
+          <input
+            className="dash-input"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+          ></input>
+        )
       ) : (
-        <div className="dash-item">{userField}</div>
+        <div className={"dash-item " + ((userKey === "feedback") ? 'textarea' : '')}>{userField}</div>
       )}
       {edit ? (
         <>

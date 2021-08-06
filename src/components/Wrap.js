@@ -13,7 +13,7 @@ const Dashboard = lazy(() => import("./Dashboard"));
 const MyCourses = lazy(() => import("./MyCourses"));
 const Home = lazy(() => import("./Home"));
 
-function Nav() {
+function Wrap() {
   const isLogged = useSelector((state) => state.userData.isLoggedIn);
   const currentUser = useSelector((state) => state.userData.currentUser);
 
@@ -135,10 +135,10 @@ function Nav() {
         </Suspense>
       </main>
 	  <footer className="footer">
-		  <p className="footer">©2021 Eugene Brednev</p>
+		  <p className="footer">2021 Eugene Brednev</p>
 	  </footer>
     </>
   );
 }
 
-export default Nav;
+export default Wrap;

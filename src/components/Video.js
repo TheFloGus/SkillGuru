@@ -5,7 +5,6 @@ function Video({ video }) {
   const [open, setOpen] = useState(false);
   const [imageLoading, setImageLoading] = useState(true);
   const [frameLoading, setFrameLoading] = useState(true);
-//   console.log(video);
 
   return (
     <li className="video">
@@ -19,16 +18,16 @@ function Video({ video }) {
             height="225px"
             onLoad={() => setImageLoading(false)}
             onClick={() => setOpen(!open)}
+            alt="video thumbnail"
           ></img>
         </div>
         <div className="video-text">
-          <h3 className="video-title">
-            {video.snippet.title || <Skeleton />}
-          </h3>
-          <p className="video-description">{`${video.snippet.description.substring(
-            0,
-            250
-          )}...` || <Skeleton count={5}/>}</p>
+          <h3 className="video-title">{video.snippet.title || <Skeleton />}</h3>
+          <p className="video-description">
+            {`${video.snippet.description.substring(0, 250)}...` || (
+              <Skeleton count={5} />
+            )}
+          </p>
         </div>
       </div>
 

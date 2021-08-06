@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from "react";
+import React, { useState} from "react";
 import youtube from "./api/youtube";
 import Video from "./Video";
 import PlaceholderLoading from "./PlaceholderLoading";
@@ -78,7 +78,7 @@ function MyCourse({ course }) {
         {open &&
           (loading ? (
             <ol className="videos">
-              {placeholderArray.map((skeleton) => skeleton)}
+              {placeholderArray.map((skeleton, index) => <div key={index}>{skeleton}</div>)}
             </ol>
           ) : (
             <ol className="videos">
