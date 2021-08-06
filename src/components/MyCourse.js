@@ -1,41 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import youtube from "./api/youtube";
 import Video from "./Video";
+import PlaceholderLoading from "./PlaceholderLoading";
 
 function MyCourse({ course }) {
   const [open, setOpen] = useState(false);
   const [videos, setVideos] = useState({});
-  const [loaded, setLoaded] = useState(false);
-  const [counter, setCounter] = useState(1);
+  const [loading, setLoading] = useState(true);
+  const [pageCounter, setPageCounter] = useState(1);
+  const placeholderArray = new Array(5).fill(<PlaceholderLoading />);
 
-  async function handleSubmit(pageToken) {
-    const response = await youtube
+  function handleSubmit(pageToken) {
+    setLoading(true);
+    youtube
       .get("/playlistItems", {
         params: {
-          playlistId: course.playlist,
           pageToken: pageToken,
+          playlistId: course.playlist,
         },
       })
+      .then((response) => {
+        setVideos(response);
+        setLoading(false);
+      })
       .catch((err) => console.log(err));
-    setVideos(response);
-    setLoaded(true);
   }
 
   function handleVideos() {
     if (!open) {
       setOpen(true);
-      handleSubmit();
+      Object.keys(videos).length || handleSubmit();
     }
   }
 
   function pageHandler(pageToken, e, action = true) {
+    e.stopPropagation();
     handleSubmit(pageToken);
-    let number = counter;
-	if(number > (Math.ceil(videos.data.pageInfo.totalResults / 5))){
-		number = Math.ceil(videos.data.pageInfo.totalResults / 5)	
-	}
-    action ? number++ : number--;
-    setCounter(number);
+    let page = pageCounter;
+    if (page > Math.ceil(videos.data.pageInfo.totalResults / 5)) {
+      page = Math.ceil(videos.data.pageInfo.totalResults / 5);
+    }
+    action ? page++ : page--;
+    setPageCounter(page);
   }
 
   return (
@@ -48,7 +54,7 @@ function MyCourse({ course }) {
           <h3>{course.name}</h3>
           {open && (
             <button
-              onClick={(e) => {
+              onClick={() => {
                 setOpen(false);
               }}
               className="my-course-button"
@@ -69,38 +75,35 @@ function MyCourse({ course }) {
             );
           })}
         </p>
-        {loaded && open && (
-          <ul className="videos">
-            {videos.data.items.map((video) => (
-              <Video video={video} key={video.id} />
-            ))}
-          </ul>
-        )}
-        {loaded && open && (
+        {open &&
+          (loading ? (
+            <ol className="videos">
+              {placeholderArray.map((skeleton) => skeleton)}
+            </ol>
+          ) : (
+            <ol className="videos">
+              {videos.data.items.map((video) => (
+                <Video video={video} key={video.id} />
+              ))}
+            </ol>
+          ))}
+        {open && (
           <div className="video-buttons">
-            {videos.data.prevPageToken ? (
-              <button
-                className="video-button"
-                onClick={(e) =>
-                  pageHandler(videos.data.prevPageToken, e, false)
-                }
-              >
-                {`< Previous`}
-              </button>
-            ) : (
-              <div className="button-placeholder"></div>
-            )}
+            <button
+              className="video-button"
+              disabled={loading || !videos.data.prevPageToken}
+              onClick={(e) => pageHandler(videos.data.prevPageToken, e, false)}
+            >
+              {`< Previous`}
+            </button>
 
-            <p className="page-counter">{counter}</p>
+            <p className="page-counter">{pageCounter}</p>
 
-            {videos.data.nextPageToken ? (
-              <button
-                className="video-button"
-                onClick={(e) => pageHandler(videos.data.nextPageToken, e)}
-              >{`Next >`}</button>
-            ) : (
-              <div className="button-placeholder"></div>
-            )}
+            <button
+              className="video-button"
+              disabled={loading || !videos.data.nextPageToken}
+              onClick={(e) => pageHandler(videos.data.nextPageToken, e)}
+            >{`Next >`}</button>
           </div>
         )}
       </div>

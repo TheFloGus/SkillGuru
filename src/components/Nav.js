@@ -1,14 +1,17 @@
 import "../style/main.scss";
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { NavLink, Switch, Route, Redirect } from "react-router-dom";
 import logo from "./img/logo-fill.png";
 import auth from "./img/user.svg";
-import Login from "./Login";
 import { useSelector } from "react-redux";
-import Registration from "./Registration";
-import Courses from "./Courses";
-import Dashboard from "./Dashboard";
-import MyCourses from "./MyCourses";
+import { SpinnerInfinity } from "spinners-react";
+
+const Login = lazy(() => import("./Login"));
+const Registration = lazy(() => import("./Registration"));
+const Courses = lazy(() => import("./Courses"));
+const Dashboard = lazy(() => import("./Dashboard"));
+const MyCourses = lazy(() => import("./MyCourses"));
+const Home = lazy(() => import("./Home"));
 
 function Nav() {
   const isLogged = useSelector((state) => state.userData.isLoggedIn);
@@ -93,30 +96,47 @@ function Nav() {
       </header>
 
       <main className="main">
-        <Switch>
-          <Route exact path="/">
-            <Redirect to="/home" />
-          </Route>
-          <Route exact path="/auth/login">
-            {isLogged ? <Redirect to="/dashboard" /> : <Login />}
-          </Route>
-          <Route exact path="/auth/registration">
-            {isLogged ? <Redirect to="/dashboard" /> : <Registration />}
-          </Route>
-          <Route exact path="/home">
-            {/* <Home /> */}
-          </Route>
-          <Route exact path="/mycourses&user=:login">
-            {isLogged ? <MyCourses /> : <Redirect to="/auth/login" />}
-          </Route>
-          <Route exact path="/courses">
-            <Courses />
-          </Route>
-          <Route exact path="/dashboard">
-            {isLogged ? <Dashboard /> : <Redirect to="/auth/login" />}
-          </Route>
-        </Switch>
+        <Suspense
+          fallback={
+            <div className="spinner">
+              <SpinnerInfinity
+                size={61}
+                thickness={112}
+                speed={100}
+                color="rgba(57, 125, 172, 1)"
+                secondaryColor="rgba(207, 207, 207, 1)"
+              />
+            </div>
+          }
+        >
+          <Switch>
+            <Route exact path="/">
+              <Redirect to="/home" />
+            </Route>
+            <Route exact path="/auth/login">
+              {isLogged ? <Redirect to="/dashboard" /> : <Login />}
+            </Route>
+            <Route exact path="/auth/registration">
+              {isLogged ? <Redirect to="/dashboard" /> : <Registration />}
+            </Route>
+            <Route exact path="/home">
+              <Home />
+            </Route>
+            <Route exact path="/mycourses&user=:login">
+              {isLogged ? <MyCourses /> : <Redirect to="/auth/login" />}
+            </Route>
+            <Route exact path="/courses">
+              <Courses />
+            </Route>
+            <Route exact path="/dashboard">
+              {isLogged ? <Dashboard /> : <Redirect to="/auth/login" />}
+            </Route>
+          </Switch>
+        </Suspense>
       </main>
+	  <footer className="footer">
+		  <p className="footer">©2021 Eugene Brednev</p>
+	  </footer>
     </>
   );
 }

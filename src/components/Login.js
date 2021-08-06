@@ -29,10 +29,10 @@ function Login() {
         dispatch(setCurrentUser(userIndex));
         history.push("/dashboard");
       } else {
-        alert("Вы ввели неправильный логи или пароль");
+        alert("Invalid login or password");
       }
     } else {
-      alert("Введите данные");
+      alert("Please enter the data");
     }
   }
 

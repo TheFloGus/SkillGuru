@@ -1,5 +1,6 @@
-@import "components/auth", "components/courses", "components/dashboard", "components/nav", "components/my-courses";
-
+@import "components/auth", "components/courses", "components/dashboard",
+  "components/nav", "components/my-courses", "components/home",
+  "components/footer";
 
 * {
   margin: 0;
@@ -14,22 +15,21 @@ a {
   color: black;
 }
 
-ul {
-	list-style: none;
-}
-
 button {
   cursor: pointer;
 }
 
 body {
-	background-color: rgb(241, 241, 241);
+  background-color: rgb(241, 241, 241);
 }
 
 .wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   max-width: 1400px;
+  height: 100%;
   min-height: 100vh;
   margin: 0 auto;
-  background-color: white
+  background-color: white;
 }
-
