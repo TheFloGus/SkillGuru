@@ -94,7 +94,6 @@ function Wrap() {
           </NavLink>
         )}
       </header>
-
       <main className="main">
         <Suspense
           fallback={
