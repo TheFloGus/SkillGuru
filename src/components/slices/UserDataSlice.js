@@ -12,7 +12,7 @@ const initialState = {
       userCourses: [],
       isAdmin: false,
       isTeacher: false,
-	  feedback: 'lorem lorem ipsum dolor sit amet, consectetur'
+      feedback: "lorem lorem ipsum dolor sit amet, consectetur",
     },
     {
       userLogin: "admin",
@@ -23,7 +23,8 @@ const initialState = {
       userCourses: [],
       isAdmin: true,
       isTeacher: false,
-	  feedback: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat'
+      feedback:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat",
     },
     {
       userLogin: "Serg",
@@ -34,7 +35,7 @@ const initialState = {
       userCourses: [],
       isAdmin: false,
       isTeacher: true,
-	  feedback: "<3"
+      feedback: "<3",
     },
   ],
   isLoggedIn: JSON.parse(localStorage.getItem("isLoggedIn")) || false,

@@ -44,7 +44,7 @@ function DashItem({ userField, userIndex, userKey }) {
             className="dash-input-textarea"
             value={value}
             onChange={(e) => setValue(e.target.value)}
-			maxLength='350'
+            maxLength="350"
           ></textarea>
         ) : (
           <input
@@ -54,7 +54,11 @@ function DashItem({ userField, userIndex, userKey }) {
           ></input>
         )
       ) : (
-        <div className={"dash-item " + ((userKey === "feedback") ? 'textarea' : '')}>{userField}</div>
+        <div
+          className={"dash-item " + (userKey === "feedback" ? "textarea" : "")}
+        >
+          {userField}
+        </div>
       )}
       {edit ? (
         <>

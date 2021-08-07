@@ -35,7 +35,11 @@ function Home() {
       </h4>
       <div className="home-blocks">
         <div className="home-block" data-aos="fade-right">
-          <img src={blockImage1} alt="beautiful block" className="home-block-image"></img>
+          <img
+            src={blockImage1}
+            alt="beautiful block"
+            className="home-block-image"
+          ></img>
           <div className="home-text">
             <h3 className="home-block-title">
               Excepteur eu ex voluptate ipsum.
@@ -50,7 +54,11 @@ function Home() {
           </div>
         </div>
         <div className="home-block" data-aos="flip-left">
-          <img src={blockImage2} className="right home-block-image" alt="beautiful block"></img>
+          <img
+            src={blockImage2}
+            className="right home-block-image"
+            alt="beautiful block"
+          ></img>
           <div className="home-text">
             <h3 className="home-block-title">
               Excepteur eu ex voluptate ipsum.
@@ -65,7 +73,11 @@ function Home() {
           </div>
         </div>
         <div className="home-block" data-aos="fade-up">
-          <img src={blockImage3} alt="beautiful block" className="home-block-image"></img>
+          <img
+            src={blockImage3}
+            alt="beautiful block"
+            className="home-block-image"
+          ></img>
           <div className="home-text">
             <h3 className="home-block-title">
               Excepteur eu ex voluptate ipsum.
