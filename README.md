@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# SkillGuru
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [Description](#Description)
 
-## Available Scripts
+- [Live Demo](#Live-demo)
 
-In the project directory, you can run:
+- [Techlogies](#Technologies)
+
+- [Using the app](#Using-the-app)
+
+## Description
+
+This is online educatioal platform, that was build using React and Redux and it emitates the real educational platforms such as SkillBox or YandexPraktikum. This is also my final project for Fron-end development course from TeachMeSkills.
+
+## Live demo
+
+You can find live demo here: https://skillguru.herokuapp.com
+
+(notice: the first loading may take up to two minutes due to Heroku removing app from the server when it's not being used )
+
+## Technologies 
+
+List of npm modules used in this project
+
+* reduxjs/toolkit: 1.6.1,
+* jest-dom: 5.14.1, 
+* react: 11.2.7,       
+* aos: 3.0.0-beta.6,    
+* axios: 0.21.1,       
+* emailjs-com: 3.2.0,       
+* node-sass: 6.0.1,    
+* prop-types: 15.7.2,    
+* react: 17.0.2,    
+* react-dom: 17.0.2,    
+* react-elastic-carousel: 0.11.5,      
+* react-loading-skeleton: 2.2.0,    
+* react-redux: 7.2.4,    
+* react-router-dom: 5.2.0,   
+* react-scripts: 4.0.3,    
+* react-transition-group: 4.4.2,    
+* spinners-react: 1.0.4,    
+* styled-components: 5.3.0,    
+* uuid: 8.3.2,   
+* web-vitals: 1.1.2,    
+* zxcvbn: 4.4.2,
+* webpack: 4.44.2
+
+## Using the app
+
+### Running the app
+
+To run the app you need to first install all npm modules. Install npm and run:
+
+### `npm i`
+
+Then you can run react app using:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Building the app 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To build the app you need to use: 
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Then you can find productuon build in the folder "build" in your apps folder
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Deployment 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The app is being deployed using [Heroku](https://heroku.com/)
 
-### `npm run eject`
+Project uses automatic deployment from github. It's being built and deployed every time something being pushed to 'dev' branch
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+You can find deployed app [here](https://skillguru.herokuapp.com)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
