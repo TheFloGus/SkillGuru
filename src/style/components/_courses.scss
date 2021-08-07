@@ -15,12 +15,16 @@
 .course-item {
   display: flex;
   justify-content: space-between;
-  width: 35%;
+  min-width: 35%;
   border: 1px solid black;
   border-radius: 10px;
   padding: 10px;
   margin: 10px;
   transition: all 0.1s ease-in-out;
+}
+
+.course-logo{
+	margin: 10px;
 }
 
 .open {
