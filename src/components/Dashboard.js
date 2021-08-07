@@ -43,7 +43,7 @@ function Dashboard() {
               userField={currentUser.userLogin}
               userIndex={currentUser.index}
             />
-			<p className="dash-title">Feedback</p>
+            <p className="dash-title">Feedback</p>
             <DashItem
               userKey="feedback"
               userField={currentUser.feedback}

@@ -13,7 +13,7 @@ function AdminButtons({ name, technologies, description, edit, setEdit, id }) {
       description,
     };
     dispatch(changeCourseData({ id, newValue: newCourse }));
-	setEdit(false)
+    setEdit(false);
   }
 
   return (
@@ -23,9 +23,16 @@ function AdminButtons({ name, technologies, description, edit, setEdit, id }) {
           Confirm
         </button>
       ) : (
-        <button className="course-button" onClick={()=>setEdit(true)}>Edit</button>
+        <button className="course-button" onClick={() => setEdit(true)}>
+          Edit
+        </button>
       )}
-      <button className="course-button" onClick={()=>dispatch(deleteCourse(id))}>Delete</button>
+      <button
+        className="course-button"
+        onClick={() => dispatch(deleteCourse(id))}
+      >
+        Delete
+      </button>
     </>
   );
 }

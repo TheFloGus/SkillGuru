@@ -21,30 +21,34 @@ function Registartion() {
   const users = useSelector((state) => state.userData.users);
 
   function registrationHandler(e) {
-	e.preventDefault();
+    e.preventDefault();
     if (name && surname && login && password) {
-      if (users.some((user) => user.userLogin.toLowerCase() === login.toLowerCase())) {
+      if (
+        users.some(
+          (user) => user.userLogin.toLowerCase() === login.toLowerCase()
+        )
+      ) {
         alert("this login is already registered");
       } else {
         const index = users.length;
-		const newUser = {
-			userName: name,
-			userSurname: surname,
-			userLogin: login,
-			userPassword: password,
-			userCourses: [],
-			userAvatar: avatar,
-			isAdmin: isAdmin,
-			isTeacher: isTeacher,
-		}
+        const newUser = {
+          userName: name,
+          userSurname: surname,
+          userLogin: login,
+          userPassword: password,
+          userCourses: [],
+          userAvatar: avatar,
+          isAdmin: isAdmin,
+          isTeacher: isTeacher,
+        };
         dispatch(addUser(newUser));
         dispatch(setCurrentUser(index));
         dispatch(toggleLoggedIn());
-		history.push("/dashboard")
+        history.push("/dashboard");
       }
-    }else {
-		alert('Enter your data plz')
-	}
+    } else {
+      alert("Enter your data plz");
+    }
   }
 
   return (
@@ -90,9 +94,7 @@ function Registartion() {
             <input
               type="checkbox"
               className="reg-checkbox"
-              onChange={(e) =>
-                setIsAdmin(e.target.checked)
-              }
+              onChange={(e) => setIsAdmin(e.target.checked)}
             ></input>
             Admin
           </label>
@@ -101,9 +103,7 @@ function Registartion() {
             <input
               type="checkbox"
               className="reg-checkbox"
-              onChange={(e) =>
-                setIsTeacher(e.target.checked)
-              }
+              onChange={(e) => setIsTeacher(e.target.checked)}
             ></input>
             Teacher
           </label>

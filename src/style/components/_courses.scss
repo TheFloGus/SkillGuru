@@ -15,12 +15,16 @@
 .course-item {
   display: flex;
   justify-content: space-between;
-  width: 35%;
+  min-width: 35%;
   border: 1px solid black;
   border-radius: 10px;
   padding: 10px;
   margin: 10px;
   transition: all 0.1s ease-in-out;
+}
+
+.course-logo {
+  margin: 10px;
 }
 
 .open {
@@ -61,67 +65,67 @@
   padding: 10px;
 }
 
-.course-technologies{
-	font-size: 13px;
-	color: rgb(0, 0, 0);
-	margin-left: 15px;
+.course-technologies {
+  font-size: 13px;
+  color: rgb(0, 0, 0);
+  margin-left: 15px;
 }
 
-.course-technique{
-	margin-left: 5px;
+.course-technique {
+  margin-left: 5px;
 }
 
 .open-tech {
-	font-size: 20px;
+  font-size: 20px;
 }
 
 .course-image {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-.course-buttons{
-	display: flex;
-	height: 100%;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
-	padding: 10px;
-	margin-top: 20px;
+.course-buttons {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-top: 20px;
 }
 
 .course-button {
-	background-color: transparent;
-	width: 50px;
-	height: 30px;
-	border-radius: 10px;
-	border: 1px solid black;
-	margin: 5px;
+  background-color: transparent;
+  width: 50px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid black;
+  margin: 5px;
 }
 
-.green{
-	background-color: rgb(97, 207, 97);
-	transform: scale(1.3);
+.green {
+  background-color: rgb(97, 207, 97);
+  transform: scale(1.3);
 }
 
-.course-title-input{
-	width: 500px;
-	min-height: 30px;
-	padding: 10px;
-	font-size: 25px;
-	margin: 2px;
+.course-title-input {
+  width: 500px;
+  min-height: 30px;
+  padding: 10px;
+  font-size: 25px;
+  margin: 2px;
 }
 
 .course-technique-input {
-	width: 90px;
-	font-size: 20px;
-	margin-left: 3px;
+  width: 90px;
+  font-size: 20px;
+  margin-left: 3px;
 }
 
 .course-description-input {
-	resize: none;
-	width: 500px;
-	height: 395px;
-	font-size: 20px;
-	padding: 12px;
+  resize: none;
+  width: 500px;
+  height: 395px;
+  font-size: 20px;
+  padding: 12px;
 }

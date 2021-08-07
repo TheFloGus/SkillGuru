@@ -94,7 +94,6 @@ function Wrap() {
           </NavLink>
         )}
       </header>
-
       <main className="main">
         <Suspense
           fallback={
@@ -134,9 +133,9 @@ function Wrap() {
           </Switch>
         </Suspense>
       </main>
-	  <footer className="footer">
-		  <p className="footer">2021 Eugene Brednev</p>
-	  </footer>
+      <footer className="footer">
+        <p className="footer">2021 Eugene Brednev</p>
+      </footer>
     </>
   );
 }

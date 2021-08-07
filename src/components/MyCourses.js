@@ -15,7 +15,7 @@ function MyCourses() {
               return true;
             }
           }
-		  return false
+          return false;
         })
         .map((course) => (
           <MyCourse course={course} key={course.id} />
