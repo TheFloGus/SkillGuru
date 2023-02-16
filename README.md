@@ -14,7 +14,7 @@ This is online educatioal platform, that was build using React and Redux and it 
 
 ## Live demo
 
-You can find live demo here: https://skillguru.herokuapp.com
+You can find live demo here: https://superb-piroshki-dcf8d9.netlify.app/
 
 (notice: the first loading may take up to two minutes due to Heroku removing app from the server when it's not being used )
 
